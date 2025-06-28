@@ -1,0 +1,1635 @@
+/* Overlay */
+.factifi-overlay {
+    position: fixed !important;
+    z-index: 2147483646 !important; /* One below max */
+}
+
+/* Auth styles */
+.factifi-auth-title {
+    font-size: 20px;
+    margin: 0 0 20px 0;
+    text-align: center;
+    font-weight: 700;
+}
+
+.factifi-auth-input {
+    display: block;
+    width: 100%;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    border: 1px solid rgba(20, 20, 19, 0.1);
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.2s ease;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-sizing: border-box;
+}
+
+.factifi-auth-input:focus {
+    outline: none;
+    border-color: #141413;
+    box-shadow: 0 0 0 2px rgba(20, 20, 19, 0.1);
+}
+
+.factifi-auth-button {
+    width: 100%;
+    padding: 14px 18px;
+    background-color: #141413;
+    color: #f0efea;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(20, 20, 19, 0.15);
+}
+
+.factifi-auth-button:hover {
+    background-color: #262624;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(20, 20, 19, 0.25);
+}
+
+.factifi-auth-toggle {
+    text-align: center;
+    font-size: 14px;
+    color: #828179;
+}
+
+.factifi-auth-toggle a {
+    color: #141413;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.factifi-auth-toggle a:hover {
+    text-decoration: underline;
+}
+
+.factifi-auth-loader {
+    text-align: center;
+    margin: 24px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.factifi-auth-loader .factifi-spinner {
+    margin-bottom: 0;
+}
+
+.factifi-auth-loader p {
+    margin: 0;
+    font-size: 14px;
+    color: #141413;
+    opacity: 0.8;
+}
+
+.factifi-user-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(20, 20, 19, 0.1);
+}
+
+#factifi-user-email {
+    font-size: 14px;
+    font-weight: 500;
+    color: #141413;
+}
+
+.factifi-logout-button {
+    background: none;
+    border: none;
+    color: #141413;
+    font-size: 13px;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.factifi-logout-button:hover {
+    background-color: rgba(20, 20, 19, 0.05);
+}
+
+/* Base Panel Styles */
+.factifi-sidebar {
+    font-family: 'Open Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    width: 380px;
+    height: 100vh; /* Ensure it takes full viewport height */
+    max-height: 100vh; /* Ensure it takes full viewport height */
+    bottom: auto;
+    margin: auto 0;
+    background-color: #f0efea;
+    background-image: linear-gradient(to bottom, #f0efea, #ece9e0);
+    color: #141413;
+    z-index: 2147483647 !important;
+    box-shadow: -8px 0 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow-y: auto; /* Allow the entire sidebar to scroll if content overflows */
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(10px);
+    scrollbar-width: thin;
+    scrollbar-color: rgba(20, 20, 19, 0.2) transparent;
+    box-sizing: border-box; /* Ensure padding/border included in size */
+}
+
+.factifi-sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.factifi-sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.factifi-sidebar::-webkit-scrollbar-thumb {
+    background-color: rgba(20, 20, 19, 0.2);
+    border-radius: 6px;
+}
+
+.factifi-hidden {
+    transform: translateX(100%);
+}
+
+/* Header Styles */
+.factifi-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0; /* No margin-bottom here; controlled by content padding */
+    position: sticky;
+    top: 0;
+    background: #f0efea;
+    z-index: 2147483647 !important;
+    padding: 18px 24px 14px;
+    border-bottom: 1px solid rgba(20, 20, 19, 0.08);
+    flex-shrink: 0; /* Prevent header from shrinking */
+    box-sizing: border-box; /* Ensure padding/border included in size */
+}
+
+.factifi-logo {
+    width: 36px;
+    height: 36px;
+    margin-right: 12px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.factifi-header h1 {
+    font-size: 24px;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: -0.7px;
+    background: linear-gradient(135deg, #141413 70%, #454540);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.factifi-close-button {
+width: 32px;
+height: 32px;
+background-color: black;
+border: none;
+border-radius: 50%;
+color: white;
+font-size: 16px;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.factifi-close-button:hover {
+    background-color: #262624;
+    transform: scale(1.05) rotate(90deg);
+}
+
+.factifi-close-button::before, 
+.factifi-close-button::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 2px;
+    background-color: #f0efea;
+    transition: background-color 0.2s ease;
+}
+
+.factifi-close-button::before {
+    transform: rotate(45deg);
+}
+
+.factifi-close-button::after {
+    transform: rotate(-45deg);
+}
+
+/* Process Button Styles */
+.factifi-primary-button {
+    padding: 12px 20px;
+    background-color: #141413;
+    background-image: linear-gradient(to bottom, #1d1d1c, #141413);
+    color: #f0efea;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    letter-spacing: 0.3px;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 16px;
+    min-height: 46px;
+    box-sizing: border-box;
+}
+
+.factifi-primary-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.08), transparent 70%);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.factifi-primary-button:hover {
+    background-image: linear-gradient(to bottom, #262624, #1d1d1c);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.factifi-primary-button:hover::after {
+    transform: translateX(100%);
+}
+
+.factifi-primary-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.factifi-primary-button:disabled {
+    background-image: linear-gradient(to bottom, #828179, #6a6a65);
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Content Styles */
+.factifi-content {
+    flex: 1; /* Allow content to grow and shrink, occupying available space */
+    display: flex;
+    flex-direction: column;
+    padding: 16px 24px 16px; /* Added padding-top */
+    overflow-y: auto; /* Enable vertical scrolling for this section */
+    overflow-x: hidden;
+    height: 0; /* Crucial for proper flexbox scrolling to work when flex: 1 is used */
+    box-sizing: border-box; /* Ensure padding/border included in size */
+    width: 100%;
+}
+
+.factifi-loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(20, 20, 19, 0.05);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.factifi-spinner {
+    width: 28px;
+    height: 28px;
+    border: 3px solid rgba(20, 20, 19, 0.05);
+    border-radius: 50%;
+    border-top-color: #141413;
+    animation: factifi-spin 1s linear infinite;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+@keyframes factifi-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.factifi-hidden {
+    display: none !important;
+}
+
+/* Claim styles */
+.factifi-claim-container {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    border-left: 3px solid #141413;
+    transition: all 0.3s ease;
+    animation: factifi-fade-in 0.5s ease forwards;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.factifi-claim-container:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.factifi-claim-container.factifi-verifying {
+    border-color: #4CAF50;
+    background-color: rgba(76, 175, 80, 0.03);
+}
+
+.factifi-claim-container.factifi-verifying::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        #4CAF50 50%, 
+        transparent 100%);
+    animation: factifi-progress 1.5s infinite;
+}
+
+@keyframes factifi-progress {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.factifi-claim-text {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 14px;
+    font-weight: 500;
+    color: #141413;
+    padding-left: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+/* Verification result styles */
+.factifi-verification-result {
+    margin-top: 12px;
+    padding: 14px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.8);
+    font-size: 13px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1px solid rgba(20, 20, 19, 0.05);
+    backdrop-filter: blur(4px);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.factifi-verification-details {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.factifi-verdict {
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+    min-width: 80px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.factifi-verdict-true {
+    background-color: rgba(76, 175, 80, 0.15);
+    color: #1b5e20;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.factifi-verdict-false {
+    background-color: rgba(244, 67, 54, 0.15);
+    color: #b71c1c;
+    border: 1px solid rgba(244, 67, 54, 0.3);
+}
+
+.factifi-verdict-cant-say {
+    background-color: rgba(255, 193, 7, 0.15);
+    color: #f57f17;
+    border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+.factifi-confidence {
+    font-weight: 600;
+    color: #141413;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background-color: rgba(20, 20, 19, 0.06);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    user-select: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.factifi-confidence:hover {
+    background-color: rgba(20, 20, 19, 0.1);
+    transform: translateY(-1px);
+}
+
+.factifi-confidence:active {
+    transform: translateY(0);
+}
+
+.factifi-caret-icon {
+    font-size: 10px;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 0.7;
+}
+
+/* Evidence and explanation sections */
+.factifi-evidence-wrapper {
+    width: 100%;
+    margin-top: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+    box-sizing: border-box;
+}
+
+.factifi-evidence-wrapper:not(.factifi-hidden) {
+    margin-top: 16px;
+    opacity: 1;
+}
+
+.factifi-explanation {
+    color: #141413;
+    border-top: 1px solid rgba(20, 20, 19, 0.08);
+    padding-top: 16px;
+    font-size: 14px;
+    width: 100%;
+    line-height: 1.7;
+    position: relative;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+.factifi-explanation::before {
+    content: '✦ Analysis';
+    display: block;
+    font-weight: 700;
+    margin-bottom: 8px;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    color: #141413;
+    opacity: 0.7;
+}
+
+.factifi-sources-section, .factifi-citations-section {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px dashed rgba(20, 20, 19, 0.1);
+    position: relative;
+}
+
+.factifi-sources-title, .factifi-citations-title {
+    font-weight: 700;
+    font-size: 13px;
+    color: #141413;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.5px;
+    opacity: 0.8;
+}
+
+.factifi-sources-title::before, .factifi-citations-title::before {
+    content: '';
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    background-color: #141413;
+    border-radius: 50%;
+    margin-right: 8px;
+    opacity: 0.6;
+}
+
+.factifi-sources-list, .factifi-citations-list {
+    list-style-type: none;
+    margin: 10px 0;
+    padding-left: 4px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.factifi-sources-list li, .factifi-citations-list li {
+    margin-bottom: 10px;
+    padding-left: 18px;
+    position: relative;
+    transition: transform 0.2s ease;
+}
+
+.factifi-sources-list li:hover, .factifi-citations-list li:hover {
+    transform: translateX(2px);
+}
+
+.factifi-sources-list li::before, .factifi-citations-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 6px;
+    height: 6px;
+    background-color: #141413;
+    border-radius: 50%;
+    opacity: 0.4;
+}
+
+.factifi-citation-link {
+    color: #0366d6;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(3, 102, 214, 0.2);
+    transition: all 0.2s ease;
+    font-weight: 500;
+}
+
+.factifi-citation-link:hover {
+    color: #0076FF;
+    border-bottom: 1px solid rgba(0, 118, 255, 0.4);
+}
+
+.factifi-progress-container {
+    padding: 16px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(20, 20, 19, 0.05);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.factifi-progress-bar-container {
+    height: 6px;
+    background-color: rgba(20, 20, 19, 0.05);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.factifi-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #141413, #333330);
+    width: 0%;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.factifi-progress-text {
+    font-size: 14px;
+    color: #141413;
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+.factifi-success {
+    color: #1b5e20;
+    text-align: center;
+    font-weight: 600;
+    padding: 16px;
+    animation: factifi-fade-in 0.5s ease;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(76, 175, 80, 0.08);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(76, 175, 80, 0.1);
+    letter-spacing: 0.3px;
+}
+
+.factifi-success::before {
+    content: '✓';
+    margin-right: 10px;
+    font-size: 18px;
+    background-color: rgba(27, 94, 32, 0.1);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.factifi-error {
+    color: #b71c1c;
+    background-color: rgba(244, 67, 54, 0.08);
+    border-radius: 10px;
+    padding: 16px;
+    font-size: 14px;
+    margin: 16px 0;
+    border: 1px solid rgba(244, 67, 54, 0.15);
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(183, 28, 28, 0.06);
+    letter-spacing: 0.3px;
+}
+
+.factifi-message {
+    background-color: rgba(20, 20, 19, 0.05);
+    border-radius: 10px;
+    padding: 16px;
+    font-size: 14px;
+    text-align: center;
+    margin: 16px 0;
+    letter-spacing: 0.3px;
+}
+
+/* AI-style highlights */
+.factifi-claims-container h3 {
+    font-size: 20px;
+    margin: 20px 0;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    position: relative;
+    display: inline-block;
+    color: #141413;
+}
+
+.factifi-claims-container h3:after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 45px;
+    height: 3px;
+    background: linear-gradient(90deg, #141413, rgba(20, 20, 19, 0.5));
+    border-radius: 2px;
+}
+
+.factifi-pulse-attention {
+    animation: factifi-pulse 1.5s ease;
+}
+
+@keyframes factifi-pulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 rgba(20, 20, 19, 0); }
+    30% { transform: scale(1.08); box-shadow: 0 0 8px rgba(20, 20, 19, 0.1); }
+    50% { transform: scale(1); box-shadow: 0 0 0 rgba(20, 20, 19, 0); }
+    70% { transform: scale(1.05); box-shadow: 0 0 5px rgba(20, 20, 19, 0.1); }
+    100% { transform: scale(1); box-shadow: 0 0 0 rgba(20, 20, 19, 0); }
+}
+
+/* Footer Styles */
+.factifi-footer {
+    padding: 14px 24px;
+    font-size: 13px;
+    color: rgba(20, 20, 19, 0.7);
+    text-align: center;
+    border-top: 1px solid rgba(20, 20, 19, 0.08);
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(8px);
+    margin-top: auto; /* Push footer to the bottom */
+    position: sticky;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.03);
+    flex-shrink: 0; /* Prevent footer from shrinking */
+    box-sizing: border-box; /* Ensure padding/border included in size */
+}
+
+.factifi-footer p {
+    margin: 0;
+    font-style: italic;
+    line-height: 1.5;
+    letter-spacing: 0.2px;
+}
+
+.factifi-link {
+    color: #141413;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    border-bottom: 1px dotted rgba(20, 20, 19, 0.3);
+    padding: 0 2px 1px;
+    position: relative;
+    margin-left: 2px;
+}
+
+.factifi-link:hover {
+    color: #000000;
+    border-bottom: 1px solid rgba(20, 20, 19, 0.7);
+    background-color: rgba(20, 20, 19, 0.05);
+    border-radius: 2px;
+}
+
+/* Toggle button - clean, sleek design */
+#factifi-toggle-btn {
+    position: fixed !important;
+    bottom: 60px !important;
+    right: 0 !important;
+    width: 48px !important;
+    height: 48px !important;
+    background-color: #f0efea !important;
+    border: none !important;
+    border-radius: 4px 0 0 4px !important;
+    box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.15) !important;
+    z-index: 2147483647 !important;
+    cursor: move !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    transition: all 0.2s ease !important;
+    user-select: none !important;
+    touch-action: none !important;
+    overflow: visible !important; /* Changed to visible to show the tooltip */
+    padding: 0 !important;
+}
+
+/* Drag indicator that appears on hover */
+#factifi-toggle-btn::after {
+    content: 'drag';
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    font-size: 12px;
+    color: rgba(20, 20, 19, 0.6);
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    font-family: 'Open Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+#factifi-toggle-btn:hover::after {
+    opacity: 1;
+}
+
+#factifi-toggle-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.04);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+#factifi-toggle-btn:hover {
+    box-shadow: -3px 2px 12px rgba(0, 0, 0, 0.25) !important;
+}
+
+#factifi-toggle-btn:hover::before {
+    opacity: 1;
+}
+
+#factifi-toggle-btn:active {
+    box-shadow: -1px 1px 4px rgba(0, 0, 0, 0.15) !important;
+}
+
+#factifi-toggle-btn img {
+    width: 38px !important;
+    height: 38px !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+/* Animation to indicate draggability */
+@keyframes factifi-drag-hint {
+    0% { transform: translateY(0); }
+    25% { transform: translateY(-2px); }
+    75% { transform: translateY(2px); }
+    100% { transform: translateY(0); }
+}
+
+#factifi-toggle-btn:hover img {
+    animation: factifi-drag-hint 1s ease-in-out infinite;
+}
+
+/* Floating badge for toggle button - improved for side positioning */
+#factifi-toggle-btn .factifi-badge {
+    display: none !important; /* Hide the badge completely */
+}
+
+/* Dragging state styles */
+.factifi-dragging {
+    opacity: 0.9 !important;
+    cursor: grabbing !important;
+    transition: none !important;
+}
+
+/* Share section styles */
+.factifi-share-section {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px dashed rgba(20, 20, 19, 0.1);
+}
+
+.factifi-share-title {
+    font-weight: 700;
+    font-size: 13px;
+    color: #141413;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.5px;
+    opacity: 0.8;
+}
+
+.factifi-share-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.factifi-share-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.factifi-share-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.factifi-twitter-button {
+    background-color: #1DA1F2;
+}
+
+.factifi-twitter-button:hover {
+    background-color: #0d8fd9;
+}
+
+.factifi-linkedin-button {
+    background-color: #0077B5;
+}
+
+.factifi-linkedin-button:hover {
+    background-color: #006399;
+}
+
+/* Share All Results Container */
+.factifi-share-all-container {
+    margin-top: 16px;
+    padding: 16px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(20, 20, 19, 0.05);
+    animation: factifi-fade-in 0.5s ease forwards;
+}
+
+.factifi-share-all-container .factifi-share-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #141413;
+    position: relative;
+    display: inline-block;
+}
+
+.factifi-share-all-container .factifi-share-title::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, #141413, rgba(20, 20, 19, 0.2));
+    border-radius: 1px;
+}
+
+.factifi-share-all-container .factifi-share-buttons {
+    justify-content: center;
+    margin-top: 12px;
+}
+
+.factifi-share-all-container .factifi-share-button {
+    padding: 10px 16px;
+    font-size: 14px;
+}
+
+@keyframes factifi-fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ... existing styles continue ... */
+
+/* Animation to indicate draggability */
+@keyframes factifi-drag-hint {
+    0% { transform: translateY(0); }
+    25% { transform: translateY(-2px); }
+    75% { transform: translateY(2px); }
+    100% { transform: translateY(0); }
+}
+
+#factifi-toggle-btn:hover img {
+    animation: factifi-drag-hint 1s ease-in-out infinite;
+}
+
+/* Floating badge for toggle button - improved for side positioning */
+#factifi-toggle-btn .factifi-badge {
+    display: none !important; /* Hide the badge completely */
+}
+
+/* Dragging state styles */
+.factifi-dragging {
+    opacity: 0.9 !important;
+    cursor: grabbing !important;
+    transition: none !important;
+}
+
+/* Claims header with inline share buttons */
+.factifi-claims-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.factifi-claims-header h3 {
+    margin: 0;
+    padding: 0;
+}
+
+.factifi-inline-share-buttons {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.factifi-inline-share-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #f0efea;
+    border: 1px solid rgba(20, 20, 19, 0.1);
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.factifi-inline-share-button:not(:disabled):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.factifi-inline-share-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.factifi-inline-share-button.factifi-twitter-button:not(:disabled) {
+    color: #1DA1F2;
+    border-color: rgba(29, 161, 242, 0.3);
+}
+
+.factifi-inline-share-button.factifi-twitter-button:not(:disabled):hover {
+    background-color: rgba(29, 161, 242, 0.1);
+}
+
+.factifi-inline-share-button.factifi-linkedin-button:not(:disabled) {
+    color: #0077B5;
+    border-color: rgba(0, 119, 181, 0.3);
+}
+
+.factifi-inline-share-button.factifi-linkedin-button:not(:disabled):hover {
+    background-color: rgba(0, 119, 181, 0.1);
+}
+
+.factifi-inline-share-button svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Specific styling for share buttons in verification results */
+.factifi-inline-result-share {
+    margin-left: auto;
+    scale: 0.85;
+    opacity: 0.7;
+    transition: all 0.2s ease;
+}
+
+.factifi-inline-result-share:hover {
+    opacity: 1;
+    scale: 0.9;
+}
+
+.factifi-verification-details {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.factifi-inline-share-button.factifi-twitter-button:not(:disabled) {
+    color: #000000;
+    border-color: rgba(0, 0, 0, 0.3);
+}
+
+.factifi-inline-share-button.factifi-twitter-button:not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.top-controls {
+display: flex;
+align-items: center;
+gap: 8px; /* adjust spacing between the close button and bug report icon */
+position: absolute;
+top: 10px;
+right: 10px;
+}
+
+.bug-report-button {
+color: #666;
+display: flex;
+align-items: center;
+justify-content: center;
+/* Remove this ↓ */
+/* order: 2; */
+}
+
+.bug-report-button svg {
+width: 24px;
+height: 24px;
+color: black; /* or white depending on your theme */
+}
+.bug-icon {
+width: 24px;   /* Ideal standard icon size */
+height: 24px;
+object-fit: contain;
+}
+.factifi-citation-arrow {
+text-decoration: none;
+color: inherit; /* Inherit text color instead of default blue */
+margin-left: 5px;
+display: inline-flex;
+align-items: center;
+transition: transform 0.2s ease;
+}
+
+.factifi-citation-arrow:hover .factifi-citation-icon {
+transform: scale(1.1);
+color: #007bff; /* Optional: slight hover color */
+}
+
+.factifi-citation-icon {
+font-size: 1em;
+background-color: #eee;
+padding: 2px 6px;
+border-radius: 50%;
+color: #333;
+display: inline-block;
+}
+.factifi-footer-icon {
+    display: inline-block;
+    font-size: 11px;
+    margin-right: 6px;
+    opacity: 0.7;
+}
+
+.factifi-dot-separator {
+    display: inline-block;
+    margin: 0 4px;
+    opacity: 0.7;
+}
+
+.factifi-google-signin {
+    margin-top: 16px;
+    text-align: center;
+}
+
+.factifi-google-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 12px 16px;
+    background-color: #fff;
+    border: 1px solid rgba(20, 20, 19, 0.1);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #141413;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.factifi-google-button:hover {
+    background-color: #f8f8f8;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.factifi-google-icon {
+    width: 18px;
+    height: 18px;
+}
+
+/* Image Check Section */
+.factifi-image-checker-page {
+    padding-top: 30px; /* Increased padding-top to give space for back button and title */
+    flex-grow: 1; /* Allow this section to grow and take available space */
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box; /* Ensure padding/border included in size */
+}
+
+.factifi-image-checker-page h2 {
+    font-size: 24px;
+    margin: 0 0 25px 0; /* Increased margin-bottom */
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: -0.7px;
+    color: #141413;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.factifi-image-checker-page h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #141413, rgba(20, 20, 19, 0.5));
+    border-radius: 2px;
+}
+
+.factifi-tabs {
+    display: flex;
+    margin-bottom: 25px; 
+    border-bottom: 1px solid rgba(20, 20, 19, 0.15); /* Slightly darker border */
+    position: relative;
+}
+
+.factifi-tab-btn {
+    flex: 1;
+    padding: 12px 0; /* Increased padding */
+    text-align: center;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    font-size: 15px;
+    font-weight: 600;
+    color: #828179;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+    position: relative;
+    z-index: 1;
+}
+
+.factifi-tab-btn.active {
+    color: #141413;
+    border-color: #141413;
+}
+
+.factifi-tab-btn:hover:not(.active) {
+    color: #141413; /* Darker hover color */
+    background-color: rgba(20, 20, 19, 0.03); /* Subtle hover background */
+}
+
+.factifi-tab-content {
+    padding: 20px 0;
+    display: none;
+    flex-grow: 1; /* Allow tab content to grow */
+    flex-direction: column;
+    overflow-y: auto; /* Enable scrolling for tab content */
+    height: 0; /* Crucial for nested flex scrolling */
+    box-sizing: border-box; /* Ensure padding/border included in size */
+}
+
+.factifi-tab-content.active {
+    display: flex; /* Ensure it's displayed */
+    flex-grow: 1;
+    flex-direction: column;
+    overflow-y: auto; /* Enable scrolling for active tab content */
+    height: 0; /* Crucial for nested flex scrolling */
+    box-sizing: border-box; /* Ensure padding/border included in size */
+}
+
+.factifi-tab-content.active > *:first-child {
+    margin-top: 0; 
+}
+
+#factifi-image-upload {
+    margin-bottom: 20px; 
+}
+
+#factifi-upload-btn {
+    display: block;
+    width: 100%;
+    padding: 14px 18px; /* Increased padding */
+    margin-bottom: 30px; 
+    background-color: #141413;
+    color: #f0efea;
+    font-size: 16px; /* Slightly larger font */
+    font-weight: 600;
+    border: none;
+    border-radius: 10px; /* More rounded corners */
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+#factifi-upload-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.08), transparent 70%);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#factifi-upload-btn:hover {
+    background-color: #262624;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+#factifi-upload-btn:hover::after {
+    transform: translateX(100%);
+}
+
+#factifi-upload-preview {
+    flex-shrink: 1; /* Allow preview to shrink if content overflows */
+    max-height: 300px; 
+    overflow-y: auto; 
+    position: relative; /* Crucial for absolute positioning of remove button */
+}
+
+#factifi-image-url {
+    margin-bottom: 25px; 
+    border-radius: 8px; /* Consistent border-radius */
+}
+
+#factifi-check-image-btn {
+    padding: 14px 20px;
+    background-color: #141413;
+    color: #f0efea;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    letter-spacing: 0.3px;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 40px; /* Significantly increased margin-bottom to create more space */
+    box-sizing: border-box; /* Ensure padding/border included in size */
+}
+
+#factifi-check-image-btn:hover {
+    background-color: #262624;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+#factifi-check-image-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.08), transparent 70%);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#factifi-check-image-btn:hover::after {
+    transform: translateX(100%);
+}
+
+#factifi-check-image-btn:disabled {
+    background-image: linear-gradient(to bottom, #828179, #6a6a65);
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure image loader and result box have proper top margin */
+#factifi-image-loader,
+#factifi-image-result {
+    flex-shrink: 0; 
+    margin-top: 30px; /* Adjusted margin-top for results and loader to give more space */
+    margin-bottom: 20px; /* Add some spacing below results */
+    box-sizing: border-box; /* Ensure padding/border included in size */
+}
+
+/* General input field style (added or adjusted for consistency) */
+.factifi-input {
+    display: block;
+    width: 100%;
+    padding: 12px 16px;
+    margin-bottom: 20px; 
+    border: 1px solid rgba(20, 20, 19, 0.1);
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.2s ease;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-sizing: border-box;
+}
+
+.factifi-input:focus {
+    outline: none;
+    border-color: #141413;
+    box-shadow: 0 0 0 2px rgba(20, 20, 19, 0.1);
+}
+
+/* Ensure consistency for the image preview image */
+#factifi-preview-img {
+    max-width: 100%;
+    max-height: 250px; /* Consistent max-height for the image itself */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    object-fit: contain; /* Ensure image fits well */
+    background-color: #fff; /* White background for images with transparency */
+    padding: 5px;
+}
+
+/* Consistent styling for remove image button */
+#factifi-remove-image {
+    background-color: transparent;
+    color: #141413;
+    border: none;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease, opacity 0.3s ease;
+    margin-top: 0px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: none;
+    z-index: 10;
+    opacity: 0;
+}
+
+#factifi-upload-preview:hover #factifi-remove-image {
+    opacity: 1;
+}
+
+#factifi-remove-image:hover {
+    background-color: rgba(20, 20, 19, 0.03); /* Even more subtle background on hover */
+    transform: scale(1.1);
+    box-shadow: none; /* No shadow on hover */
+}
+
+#factifi-remove-image svg {
+    width: 14px;
+    height: 14px;
+    color: #454540; /* Softer color for the icon */
+}
+
+/* Separate styling for the 'Check AI-Generated Image' button in the main content */
+#factifi-show-image-checker-btn {
+    margin-top: 30px; 
+    display: block;
+    width: 100%; /* Make it full width */
+    padding: 12px 20px;
+    background-color: #e0e0e0;
+    color: #141413;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    letter-spacing: 0.3px;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+#factifi-show-image-checker-btn:hover {
+    background-color: #d0d0d0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* Image Analysis Results Formatting */
+.factifi-analysis-container {
+    padding: 10px 0;
+}
+
+.factifi-analysis-container h3 {
+    font-size: 20px;
+    margin: 0 0 20px 0;
+    font-weight: 700;
+    color: #141413;
+    text-align: center;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.factifi-analysis-container h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, #141413, rgba(20, 20, 19, 0.5));
+    border-radius: 2px;
+}
+
+.factifi-analysis-section {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 18px;
+    margin-bottom: 20px; /* Increased margin */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(20, 20, 19, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.factifi-analysis-section:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+}
+
+.factifi-analysis-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #141413;
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding-left: 5px;
+    position: relative;
+}
+
+.factifi-analysis-title::before {
+    content: '✦';
+    position: absolute;
+    left: -15px;
+    color: #828179;
+    font-size: 14px;
+    top: 2px;
+}
+
+.factifi-analysis-text {
+    font-size: 14px;
+    color: #454540;
+    line-height: 1.6;
+    margin-bottom: 0;
+    padding-left: 5px;
+    overflow-wrap: break-word;
+}
+
+.factifi-analysis-text strong {
+    color: #141413;
+}
+
+/* Reverse Search Results */
+.factifi-search-results-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+}
+
+.factifi-search-result-item {
+    background-color: rgba(20, 20, 19, 0.02);
+    border-radius: 8px;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(20, 20, 19, 0.05);
+    transition: all 0.2s ease;
+}
+
+.factifi-search-result-item:hover {
+    background-color: rgba(20, 20, 19, 0.05);
+    transform: translateX(3px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.factifi-search-result-link {
+    font-size: 14px;
+    font-weight: 600;
+    color: #141413;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.factifi-search-result-link:hover {
+    text-decoration: underline;
+    color: #000;
+}
+
+.factifi-search-result-snippet {
+    font-size: 13px;
+    color: #6a6a65;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+.factifi-search-result-source {
+    font-weight: 600;
+    color: #454540;
+}
+
+.factifi-back-button {
+    background: none;
+    border: none;
+    color: #141413;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: all 0.2s ease;
+    margin-bottom: 20px; /* Space from title */
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 600;
+    align-self: flex-start; /* Align to start of flex container */
+}
+
+.factifi-back-button:hover {
+    background-color: rgba(20, 20, 19, 0.05);
+}
+
+.factifi-result-box {
+    margin-top: 30px;
+}
